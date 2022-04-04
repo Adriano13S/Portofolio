@@ -22,7 +22,7 @@
           "tag": "Main Projects",
           "projects": [
             {
-              "title":"Title",
+              "title":"Title1safasaasfafsasoghisangnaapaafaas",
               "header": "A web app for visualizing personalized Spotify data",
               "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
               "languages":[{"name": "javascript", "prc":100}],
@@ -31,7 +31,7 @@
               "external": "https://github.com/"
             },
             {
-              "title":"Title",
+              "title":"Title2",
               "header": "A web app for visualizing personalized Spotify data",
               "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
               "languages":[{"name": "javascript", "prc":70}, {"name": "python", "prc":30}],
@@ -40,7 +40,7 @@
               "external": "https://github.com/"
             },
             {
-              "title":"Title",
+              "title":"Title3",
               "header": "A web app for visualizing personalized Spotify data",
               "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
               "languages":[{"name": "python", "prc":100}],

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ProjectDetails } from "./projectDetails";
 import { SvgLineCircleComponent } from "../0.Components/svgLineCircle"
 import { ISingleProject } from ".";
@@ -7,11 +7,13 @@ interface IProject {
   project: ISingleProject
   gapTop?: boolean
   gapBot?: boolean
+  showProject: boolean
 }
 
-export const Project: React.FC<IProject> = ({project, gapTop, gapBot}) =>{
+export const Project: React.FC<IProject> = ({project, gapTop, gapBot, showProject}) =>{
+
   return(
-    <SingleProjectContainer>
+    <SingleProjectContainer className="project" id={project.title}>
       {gapTop && <GapTop />}
       <ProjectTitle>
         <p>{project.title}</p>
@@ -24,13 +26,14 @@ export const Project: React.FC<IProject> = ({project, gapTop, gapBot}) =>{
         />
       </ProjectTitle>
       <ProjectContent>
-        <ProjectAboutContainer>
+        <ProjectAboutContainer showProject={showProject}>
           <ProjectAboutText>
             <h3>{project.header}</h3>
             <p>{project.description}</p>
           </ProjectAboutText>
         </ProjectAboutContainer>
       <ProjectDetails 
+        showProject={showProject}
         languages={project.languages}
         frameworks={project.frameworks}
         github={project.github}
@@ -43,11 +46,8 @@ export const Project: React.FC<IProject> = ({project, gapTop, gapBot}) =>{
 };
 
 const SingleProjectContainer = styled.div`
-
   width: 70%;
-  margin: 0% 15% 0% 15%;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -61,6 +61,9 @@ const SingleProjectContainer = styled.div`
     background-color: var(--bronze);
     left: 50%;
     bottom: 0;
+  }
+  @media screen and (max-width: 425px) {
+    width: 85%;
   }
 `
 const GapTop = styled.div`
@@ -85,34 +88,41 @@ const ProjectTitle = styled.div`
   width: 100%;
   padding: 0.2%;
   display: flex;
-  padding-left: calc(50% - 104px);
-  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
+  padding-right: calc(50% - 19px);
   background-color: var(--dark-blue);
   color: var(--bronze);
   z-index: 1;
   > p{
-    margin-right: 15px;
+    margin-right: 9px;
     font-size: var(--h5-size);
+    max-width: 60%;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   @media screen and (max-width: 425px) {
-    padding-left: calc(50% - 72px);
+    > p{
+      margin-right: 9px;
+    }
   }
 `
 const ProjectContent = styled.div`
   padding: 1vh 0 1vh 0;
-  min-height: 50vh;
+  min-height: 60vh;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
   @media screen and (max-width: 1440px) {
-    padding: 15vh 0 15vh 0
+    flex-direction: column;
+    padding: 15vh 0 15vh 0;
+    min-height: 80vh;
   }
 `
 
-const ProjectAboutContainer = styled.div`
+const ProjectAboutContainer = styled.div<{showProject:boolean}>`
   height: 100%;
   width: var(--box-width);
   // box-shadow: 0 2px 4px black;
@@ -120,11 +130,15 @@ const ProjectAboutContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
-  margin-left: 0;
-  // opacity: 0;
-  // margin-left: -80%;
-  transition: margin-left 0.5s ease, opacity 1.5s ease;
+  transition: margin-left 0.5s, opacity 0.5s ease 0.2s;
+  opacity: 0.1;
+  margin-left: -60%;
+
+  ${props => props.showProject && css`
+    opacity: 1;
+    margin-left: 0;
+  `
+  }
   @media screen and (max-width: 1395px) {
     width: 60%;
   }

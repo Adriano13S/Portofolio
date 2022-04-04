@@ -13,6 +13,13 @@ const FooterContainer = styled.div`
   width: 100%;
   // height: 100%;
   position: relative;
+  padding-bottom: 670px;
+  @media screen and (max-width: 1440px) {
+    padding-bottom: 400px;
+  }
+  @media screen and (max-width: 730px) {
+    padding-bottom: 200px;
+  }
 `
 
 const Svg2 = styled(Svg)`

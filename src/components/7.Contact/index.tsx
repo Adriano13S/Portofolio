@@ -30,7 +30,7 @@ export const Contact: React.FC<IContact> = ({tag, header, text, mailbox}) => {
            my inbox is always open. Whether you have a question or a proposal,
             I’ll try my best to get back to you!
         </ContactContentText>
-        <ContactContentButton href="mailto:adr.dev.mass@gmail.com">
+        <ContactContentButton href="mailto:adr.dev.mass@gmail.com" target="_blank">
           <div>Mail</div>
         </ContactContentButton>
       </ContactContent>
@@ -117,6 +117,7 @@ const ContactContentButton = styled.a`
   border-radius: 10px;
   box-shadow: var(--main-box-shadow);
   z-index: 2;
+  transition: background-color 0.5s ease, color 0.5s ease;
   >div{
     display: flex;
     justify-content: center;

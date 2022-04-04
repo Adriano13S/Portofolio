@@ -38,6 +38,7 @@ const SingleSecondaryProjectContainer = styled.div`
   background: var(--gradient-avg-blue-dark-blue);
   box-shadow: var(--main-box-shadow);
   z-index: 1;
+  transition: transform 0.2s ease-out;
   &:hover {
     transform: scale(1.02);
   }

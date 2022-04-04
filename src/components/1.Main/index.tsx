@@ -7,49 +7,59 @@ import { Projects } from '../5.Projects';
 import { SecondaryProjects } from '../6.SecondaryProjects';
 import { Contact } from '../7.Contact';
 import { Footer } from '../8.Footer';
+import { SvgSignature } from '../0.Components/svgSignature';
 import content from '../../xcontent.json'
-import { createContext } from 'react';
 
-export const ProjectContext = createContext(content.data.pages.Projects)
+
 
 export const App: React.FC<IChildrenClassName> = ({className}) => {
-
-  const navOptions = Object.keys(content.data.pages);
+  const navOptions: string[] = Object.keys(content.data.pages);
+  //TODO: Add glow behind main project detalis (behind robot or project details)
+  //TODO: Add glow to secondary projects icons (github and external link), make them obv to click
+  //TODO: Add transition to Other Projects
+  //TODO: Add transition and details to skills -> number of projects and other details !!!!!!!!!!!!!!!!!
+  //TODO: Mobile view prevent side nav from beeing seen on transition to mobile view - no real necesity
+  //TODO: Mobile view, fix border 'overflow' on Projects cotainer - f not bug maybe
+  //TODO: Set Navbar color / blur
+  //TODO: Maybe increase margin on projects off view, on mobile
 
   return (
     <Main className={className}>
-      <DoorsContainer style={{'display':'none'}}>
-        <DoorLeft/>
-        <Bubble>
-          <SmallBubble />
-        </Bubble>
-        <DoorRight/>
-      </DoorsContainer>
-      <Nav options={navOptions}/>
-      <Landing 
-        header={content.data.landing_text.header}
-        text={content.data.landing_text.text}
-      />
-      <About
-        tag={content.data.pages.About.tag}
-        aboutMe={content.data.pages.About.aboutMe}
-        mySkills={content.data.pages.About.mySkills}
-       />
-      
-      <Projects
-        projectsTag={content.data.pages.Projects.tag}
-        mainProjectsTag={content.data.pages.Projects.mainProjects.tag}
-        projectslist = {content.data.pages.Projects.mainProjects.projects}
-       />
-      <SecondaryProjects />
-      
-      <Contact
-        tag={content.data.pages.Contact.tag}
-        header={content.data.pages.Contact.header}
-        text={content.data.pages.Contact.text}
-        mailbox={content.data.pages.Contact.mailbox}
-      />
-      <Footer />
+      <LandingOverlay>
+        <SvgSignature
+          width='100%'
+          height='100%'
+          color='var(--nice-blue)'
+          strokeWidth='1.12'
+        />
+      </LandingOverlay>
+      <Nav options={navOptions} />
+      <ContentContainer>
+        <Landing 
+          header={content.data.landing_text.header}
+          text={content.data.landing_text.text}
+        />
+        <About
+          tag={content.data.pages.About.tag}
+          aboutMe={content.data.pages.About.aboutMe}
+          mySkills={content.data.pages.About.mySkills}
+        />
+        
+        <Projects
+          projectsTag={content.data.pages.Projects.tag}
+          mainProjectsTag={content.data.pages.Projects.mainProjects.tag}
+          projectslist = {content.data.pages.Projects.mainProjects.projects}
+        />
+        <SecondaryProjects />
+        
+        <Contact
+          tag={content.data.pages.Contact.tag}
+          header={content.data.pages.Contact.header}
+          text={content.data.pages.Contact.text}
+          mailbox={content.data.pages.Contact.mailbox}
+        />
+        <Footer />
+      </ContentContainer>
     </Main>
   );
 };
@@ -59,50 +69,22 @@ const Main = styled.section`
   flex-direction: column;
 `;
 
-
-const DoorsContainer = styled.div`
-  width: 100vw;
+const LandingOverlay = styled.div`
+  width: 100%;
   height: 100vh;
   position: absolute;
   display: flex;
-  overflow: hidden;
-  z-index: 10;
-`
-
-const Bubble = styled.div`
-  cursor: pointer;
-  width: 180px;
-  height: 180px;
-  margin-left: calc(50vw - 90px);
-  margin-top: calc(50vh - 90px);
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--nice-blue);
-`
-
-const SmallBubble = styled.input`
-  width: 80%;
-  height: 80%;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   background-color: var(--dark-blue);
-`
-
-const DoorLeft = styled.div`
-  flex: 1;
-  border-right: solid 1px var(--bronze);
-  background-color: var(--dark-blue);
-  transition: margin-right 1.5s linear;
-`
-const DoorRight = styled.div`
-  flex: 1;
-  border-left: solid 1px var(--bronze);
-  background-color: var(--dark-blue);
-  transition: margin-left 1.5s linear;
-  ${Bubble}:hover + & {
-    margin-left: 100vw;
+  z-index: 3;
+  display: none;
+  path {
+    
   }
 `
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`
+
 
