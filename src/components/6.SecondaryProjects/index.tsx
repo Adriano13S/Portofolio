@@ -83,7 +83,7 @@ const SvgContainerMid = styled.div`
   display: flex;
   align-items: flex-end;
   position: absolute;
-  left: calc(50% - 18.7px);
+  left: calc(50% - 18.5px);
   top: -22px;
   z-index: 1;
   > p{

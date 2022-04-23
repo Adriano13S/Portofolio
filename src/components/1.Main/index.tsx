@@ -14,14 +14,9 @@ import content from '../../xcontent.json'
 
 export const App: React.FC<IChildrenClassName> = ({className}) => {
   const navOptions: string[] = Object.keys(content.data.pages);
-  //TODO: Add glow behind main project detalis (behind robot or project details)
-  //TODO: Add glow to secondary projects icons (github and external link), make them obv to click
-  //TODO: Add transition to Other Projects
-  //TODO: Add transition and details to skills -> number of projects and other details !!!!!!!!!!!!!!!!!
-  //TODO: Mobile view prevent side nav from beeing seen on transition to mobile view - no real necesity
+  //TODO: Add transition and details to skills -> number of projects and other details (on hold for now)
+  //TODO: Mobile view prevent side nav from beeing seen on transition to mobile view - no real a necesity
   //TODO: Mobile view, fix border 'overflow' on Projects cotainer - f not bug maybe
-  //TODO: Set Navbar color / blur
-  //TODO: Maybe increase margin on projects off view, on mobile
 
   return (
     <Main className={className}>

@@ -61,11 +61,15 @@ const ProjectDetailsContainer = styled.div<{showProject:boolean}>`
   box-shadow: var(--main-box-shadow);
   opacity: 0.1;
   margin-right: -60%;
+  @media screen and (max-width: 730px) {
+    margin-right: -90%;
+    min-width: 90%;
+  }
   transition: margin-right 0.5s ease, opacity 0.5s ease 0.2s;
 
   ${props => props.showProject && css`
     opacity: 1;
-    margin-right: 0;
+    margin-right: 0 !important;
   `}
   h5{
     margin-bottom: 10px;

@@ -39,9 +39,7 @@ const SingleSecondaryProjectContainer = styled.div`
   box-shadow: var(--main-box-shadow);
   z-index: 1;
   transition: transform 0.2s ease-out;
-  &:hover {
-    transform: scale(1.02);
-  }
+}
 `
 
 const Header = styled.div`
@@ -50,16 +48,49 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a:nth-of-type(2) {
+    >img{
+      border-radius: 50%;
+      animation: blink 1s infinite alternate;
+      @keyframes blink {
+        100% {
+          box-shadow: 0 0 var(--spred1) var(--anim-hover-color);
+        }
+      }
+    }
+  }
+  a:nth-of-type(1) {
+    >img{
+      animation: blink2 1s infinite alternate;
+      @keyframes blink2 {
+        100% {
+          box-shadow: 7.5px -7.5px var(--spred2) -6px var(--anim-hover-color);
+        }
+        0% {
+          box-shadow: 7.5px -7.5px 0px -10px var(--anim-hover-color);
+        }
+      }
+    }
+  }
 `
 
 const Link = styled.a`
 display: flex;
 align-items: center;
 justify-content: center;
-
 > img{
+  --anim-hover-color: #0ba9ca;
+  --spred1: 10px;
+  --spred2: 5px;
   width: 30px;
   height: 30px;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.2);
+    --spred1: 15px;
+    --spred2: 8px;
+    --anim-hover-color: #d75800;
+  }
 }
 `
 const Title = styled.h1`

@@ -2,13 +2,13 @@
   "data":{
     "landing_text":{
       "header": "Hi, I`m \n Adrian Stan, and \n I build things for the web.",
-      "text": "I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products at Upstatement."
+      "text": "I’m a self-taught software developer with almost 3 years experince of building web related projects. My interest in web development started back in 2018"
     },
     "pages":{
       "About":{
         "tag": "About",
         "aboutMe": {
-          "text":"Self-taught passionate FrontEnd developer from India, currently working at Razorpay as a FrontEnd engineer.I've been building stuff on the web since when I was in 6th standard.I've made countless side projects and I also posses magical powers of using react to build delightful user interfaces.I also love doing open source development, I actively maintain various notable open source projects with over,30k+ stars on GitHub and 50m+ hits. It gives me a wonderful feeling of achievement and joy which I cannot explain in words.",
+          "text":"Self-taught passionate developer from Romania, currently working on personal projects, most notable cand be found below. I've been building stuff on the web for almost 3 years.",
           "tag": "About Me"
         },
         "mySkills":{
@@ -22,29 +22,29 @@
           "tag": "Main Projects",
           "projects": [
             {
-              "title":"Title1safasaasfafsasoghisangnaapaafaas",
-              "header": "A web app for visualizing personalized Spotify data",
-              "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
-              "languages":[{"name": "javascript", "prc":100}],
-              "frameworks":["node", "react", "express", "mongo"],
-              "github": "https://github.com/",
-              "external": "https://github.com/"
-            },
-            {
-              "title":"Title2",
-              "header": "A web app for visualizing personalized Spotify data",
-              "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
+              "title":"Movies API",
+              "header": "Api that provides data from Imdb",
+              "description":"Api for Imdb data, movies and series. \n Based on complete and daily updated database with ~ 9 million titles. \n This api is available on Rapid Api as Data-Imdb V2 and has around 1 million calls every month, average error rate below 1%. \n Futures plans are to make this api an independent app not dependent on Rapid Api infrastructure. \n Data collected with a scraper developed with python",
               "languages":[{"name": "javascript", "prc":70}, {"name": "python", "prc":30}],
-              "frameworks":["node", "react", "express", "mongo"],
-              "github": "https://github.com/",
-              "external": "https://github.com/"
+              "frameworks":["node", "express", "mongo"],
+              "github": "https://github.com/Adriano13S/ImdbMEN.git",
+              "external": "https://rapidapi.com/SAdrian/api/data-imdb1/"
             },
             {
-              "title":"Title3",
-              "header": "A web app for visualizing personalized Spotify data",
-              "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
-              "languages":[{"name": "python", "prc":100}],
-              "frameworks":["node", "react", "express", "mongo"],
+              "title":"Xcote App",
+              "header": "A web app that provides odds and live info for sporting events",
+              "description":"Compares odds for sporting events and provides live info and live odds. \n The information provided is scraped by the app backend from four of the biggest romanian sportsbooks, and it is updated every minute. \n",
+              "languages":[{"name": "javascript", "prc":100}],
+              "frameworks":["node", "express","react", "redux"],
+              "github": "https://github.com/Adriano13S/Xcote-React",
+              "external": "https://xcote.ro/"
+            },
+            {
+              "title":"Portofolio App",
+              "header": "What are you seeing now ;)",
+              "description":"App build with React, typescript and styled components",
+              "languages":[{"name": "javascript", "prc":100}],
+              "frameworks":["react", "typescript"],
               "github": "https://github.com/",
               "external": "https://github.com/"
             }

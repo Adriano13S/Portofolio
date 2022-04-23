@@ -136,7 +136,7 @@ const ProjectAboutContainer = styled.div<{showProject:boolean}>`
 
   ${props => props.showProject && css`
     opacity: 1;
-    margin-left: 0;
+    margin-left: 0 !important;
   `
   }
   @media screen and (max-width: 1395px) {
@@ -144,6 +144,7 @@ const ProjectAboutContainer = styled.div<{showProject:boolean}>`
   }
   @media screen and (max-width: 730px) {
     width: 90%;
+    margin-left: -90%;
   }
 `
 const ProjectAboutText = styled.div`

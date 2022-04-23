@@ -52,10 +52,10 @@ const NavContainer = styled.div<{showNav:boolean}>`
   width: 100%;
   top: ${props => props.showNav ? '0': '-5vh'};
   z-index: 4;
-  // backdrop-filter: blur(2px);
   box-shadow: 0 1px 15px -12px gray;
   transition: 0.2s ease;
   position: fixed;
+  backdrop-filter: blur(2px);
 `
 
 const NavLeft = styled.div`

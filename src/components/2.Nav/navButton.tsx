@@ -23,12 +23,12 @@ const Button = styled.a`
   border: none;
   padding: 5px;
   margin: 2% 8% 2% 4%;
-  transition: margin 0.2s ease;
+  transition: margin 0.2s ease, color 0.3s ease, text-shadow 0.5s ease;
   :hover{
     color: var(--bronze);
     text-shadow:
-    0 0 2px var(--bronze),
-    0 0 4px var(--bronze),
+    0 0 1px var(--bronze),
+    0 0 1px var(--bronze),
     0 0 15px var(--bronze)
   }
 `
