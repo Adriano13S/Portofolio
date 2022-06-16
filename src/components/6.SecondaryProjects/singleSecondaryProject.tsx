@@ -1,22 +1,32 @@
 import styled from "styled-components";
 
-export const SingleSecondaryProject: React.FC = () => {
+interface ISecondaryProject{
+  title: string
+  description: string
+  tools: string[]
+  github: string
+  external: string
+}
+
+interface ISingleSecondaryProject{
+  project: ISecondaryProject
+}
+
+export const SingleSecondaryProject: React.FC<ISingleSecondaryProject> = ({project}) => {
   return(
     <SingleSecondaryProjectContainer>
       <Header>
-        <Link href="#">
+        <Link href={project.external} target="_blank">
           <img src="/images/external-link.png" alt="tag-node" />
         </Link>
-        <Link href="#">
+        <Link href={project.github} target="_blank">
           <img src="/images/github.png" alt="tag-node" />
         </Link>
       </Header>
-      <Title>Time to Have More Fun</Title>
-      <Description>A single page web app for helping me choose where to travel, built with Next.js, Firebase, and Tailwind CSS</Description>
+      <Title>{project.title}</Title>
+      <Description>{project.description}</Description>
       <TechContainer>
-        <p>Javascript</p>
-        <p>Javascript</p>
-        <p>Javascript</p>
+        {project.tools.map((tool) => <p>{tool}</p>)}
       </TechContainer>
     </SingleSecondaryProjectContainer>
   );
@@ -102,6 +112,8 @@ const Description = styled.p`
   max-width: 35vh;
   color: var(--grey);
   font-size: var(--p-size);
+  white-space: pre-line;
+  vertical-align: bottom;
 `
 const TechContainer = styled.div`
   max-width: 35vh;

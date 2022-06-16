@@ -1,16 +1,15 @@
-import styled from "styled-components";
-import { Svg } from "../0.Components/svg";
+import styled from 'styled-components';
+import { Svg } from '../0.Components/svg';
+import content from '../../xcontent.json'
 
-interface ILanding{
-  header: string
-  text: string
-}
+export const Landing: React.FC = () => {
+  const header = content.data.landing_text.header;
+  const text = content.data.landing_text.text;
 
-export const Landing: React.FC<ILanding> = ({header, text}) => {
   return(
     <LandingContainer>
       <HiContainer>
-        <HiImage src='images/robotHi.png' alt="HiFromRobot"/>
+        <HiImage src="images/robotHi.png" alt="HiFromRobot"/>
         <HiText>
           <HiHeader>
             {header}
@@ -59,10 +58,12 @@ const HiHeader = styled.h1`
   font-size: var(--h1-size);
   font-weight: bold;
   color: var(--nice-blue);
+  white-space: pre-line;
 `
 const HiParagraph = styled.p`
   color: var(--grey);
   font-size: var(--h5-size);
+  white-space: pre-line;
 `
 
 

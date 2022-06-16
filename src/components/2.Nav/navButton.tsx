@@ -4,12 +4,13 @@ interface INavButton {
   className?: string
   text: string
   href: string
+  target?: string
 }
 
-export const NavButton: React.FC<INavButton> = ({className, text, href}) => {
+export const NavButton: React.FC<INavButton> = ({className, text, href, target}) => {
 
   return(
-    <Button href={href} type='button' className={className}>
+    <Button href={href} type="button" className={className} target={target}>
       {text}
     </Button>
   );
@@ -18,7 +19,7 @@ export const NavButton: React.FC<INavButton> = ({className, text, href}) => {
 const Button = styled.a`
   cursor: pointer;
   background-color: transparent;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: var(--nice-blue);
   border: none;
   padding: 5px;

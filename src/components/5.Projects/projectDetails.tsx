@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
-import { ILanguage } from ".";
-
+interface ILanguage {
+  name: string
+  prc: number
+}
 interface IDetails {
   languages: ILanguage[]
   frameworks: string[]
@@ -27,11 +29,13 @@ export const ProjectDetails: React.FC<IDetails> = ({languages, frameworks, githu
       </ProjectLanguagesTags>
       <ProjectFrameworksTags>
         <h5>Frameworks / Libraries</h5>
-        {frameworks.map((frame, i) => 
-        <FrameworkTag key={i}>
-          <img src={`/images/${frame}.png`} alt={frame} />
-        </FrameworkTag>
-        )}
+        <FrameWorksContainer>
+          {frameworks.map((frame, i) => 
+          <FrameworkTag key={i}>
+            <img src={`/images/${frame}.png`} alt={frame} />
+          </FrameworkTag>
+          )}
+        </FrameWorksContainer>
       </ProjectFrameworksTags>
       <ProjectDetailsLinks>
         <Link href={github} target="_blank">
@@ -49,7 +53,7 @@ export const ProjectDetails: React.FC<IDetails> = ({languages, frameworks, githu
 
 
 const ProjectDetailsContainer = styled.div<{showProject:boolean}>`
-  min-width: 30%;
+  width: var(--project-width);
   min-height: 35vh;
   padding: 1%;
   border-radius: 1.5%;
@@ -63,7 +67,6 @@ const ProjectDetailsContainer = styled.div<{showProject:boolean}>`
   margin-right: -60%;
   @media screen and (max-width: 730px) {
     margin-right: -90%;
-    min-width: 90%;
   }
   transition: margin-right 0.5s ease, opacity 0.5s ease 0.2s;
 
@@ -89,7 +92,7 @@ const ProjectRobotImage = styled.img`
   position: absolute;
   width: 200px;
   z-index: 2;
-  top: 30px;
+  top: 2px;
   right: -140px;
   transform: scale(-1, 1);
   @media screen and (max-width: 768px) {
@@ -114,10 +117,18 @@ const ProjectFrameworksTags = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-` 
+  justify-content: flex-start;
+`
+
+const FrameWorksContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
 
 const FrameworkTag = styled.div`
+  width: 21%;
   margin: 5px;
   display: flex;
   align-items: center;
@@ -174,7 +185,7 @@ const ProjectDetailsLinks = styled.div`
 
 const Link = styled.a`
   cursor: pointer;
-  padding: 5px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -222,7 +233,6 @@ const Link = styled.a`
     margin: 5px;
   }
   > p {
-    font-weight: bold;
     font-size: var(--p-size);
     margin: 5px;
     color: var(--bck-color);

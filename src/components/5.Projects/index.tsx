@@ -1,34 +1,16 @@
-import styled from "styled-components";
-import { Project } from "./singleProject";
-import { SvgLineCircleComponent } from "../0.Components/svgLineCircle";
-import { useState, useEffect } from "react";
-
-export interface ISingleProject {
-  title: string
-  header: string
-  description: string
-  languages: ILanguage[]
-  frameworks:  string[]
-  github: string
-  external: string
-}
-
-export interface ILanguage {
-  name: string
-  prc: number
-}
-
-interface IProjects {
-  projectsTag: string
-  mainProjectsTag: string
-  projectslist:  ISingleProject[]
-}
-
+import styled from 'styled-components';
+import { Project } from './singleProject';
+import { SvgLineCircleComponent } from '../0.Components/svgLineCircle';
+import { useState, useEffect } from 'react';
+import content from '../../xcontent.json'
 interface Istate {
   [key: string]: boolean
 }
 
-export const Projects: React.FC<IProjects> = ({projectsTag, mainProjectsTag, projectslist}) => {
+export const Projects: React.FC = () => {
+
+  const projectsTag = content.data.pages.Projects.tag;
+  const mainProjectsTag = content.data.pages.Projects.mainProjects.tag;
 
   const [showProject, setShowProject] = useState<Istate>({});
   
@@ -78,7 +60,7 @@ export const Projects: React.FC<IProjects> = ({projectsTag, mainProjectsTag, pro
         />
         <p>{mainProjectsTag}</p>
       </SvgContainerMid>
-      {projectslist.map((project, i, arr) => {
+      {content.data.pages.Projects.mainProjects.projects.map((project, i, arr) => {
         if(i === 0){
           return <Project key={i} gapTop project={project} showProject={showProject[project.title]}/>
         } 
@@ -112,7 +94,6 @@ const SvgContainerMid = styled.div`
   > p{
     color: var(--nice-blue);
     font-size: var(--h5-size);
-    margin-top: -2.5px;
     @media screen and (max-width: 425px) {
       margin-top: 2.5px;
     }

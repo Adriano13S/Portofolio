@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SingleSecondaryProject } from "./singleSecondaryProject";
 import { SvgLineCircleComponent } from "../0.Components/svgLineCircle";
+import content from "../../xcontent.json";
 
 export const SecondaryProjects: React.FC = () => {
   return(
@@ -14,10 +15,10 @@ export const SecondaryProjects: React.FC = () => {
           circleSize="7"
           type="top-right"
         />
-        <p>Main Projects</p>
+        <p>{content.data.pages.Projects.mainProjects.tag}</p>
       </SvgContainerMid>
       <SvgContainerRight>
-        <p>Projects</p>
+        <p>{content.data.pages.Projects.tag}</p>
         <SvgLineCircleComponent 
           fillCircle="var(--dark-blue)"
           colorCircle="var(--bronze)"
@@ -28,7 +29,7 @@ export const SecondaryProjects: React.FC = () => {
         />
       </SvgContainerRight>
       <SvgContainerRightTwo>
-        <p>Other Projects</p>
+        <p>{content.data.pages.Projects.secondaryProjects.tag}</p>
         <SvgLineCircleComponent 
           fillCircle="var(--dark-blue)"
           colorCircle="var(--nice-blue)"
@@ -39,9 +40,9 @@ export const SecondaryProjects: React.FC = () => {
         />
       </SvgContainerRightTwo>
       <SecondaryProjectsContent>
-        <SingleSecondaryProject />
-        <SingleSecondaryProject />
-        <SingleSecondaryProject />
+        {content.data.pages.Projects.secondaryProjects.projects.map((project) => 
+          <SingleSecondaryProject project={project}/>
+        )}
       </SecondaryProjectsContent>
     </SecondaryProjectsContainer>
   );
@@ -107,7 +108,7 @@ const SvgContainerRight = styled.div`
   > p{
     color: var(--nice-blue);
     font-size: var(--h5-size);
-    margin-top: -4px;
+    margin-top: -1px;
     @media screen and (max-width: 425px) {
       margin-top: 2px;
     }

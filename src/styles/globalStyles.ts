@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import {createGlobalStyle} from 'styled-components';
 
 const size = {
   mobileS: '320px',
@@ -36,43 +36,41 @@ export default createGlobalStyle`
     // --h3-size: 2.2vmin;
     // --h4-size: 1.8vmin;
     // --h5-size: 1.5vmin;
-    --p-size: 17.5px;
-    --h1-size: 52px;
-    --h2-size: 40px;
-    --h3-size: 35px;
-    --h4-size: 29px;
-    --h5-size: 23px;
+    --p-size: 15px;
+    --h1-size: 45px;
+    --h2-size: 35px;
+    --h3-size: 30px;
+    --h4-size: 25px;
+    --h5-size: 18px;
     --pimage-size: 3.5vmin;
     --linkimage-size: 25px;
-    --box-width: 40%;
+    --box-width: 35%;
     --skill-size: 8vmin;
+    --project-width: 420px;
     @media screen and (max-width: ${size.laptopL}) {
-      --p-size: 15px;
-      --h1-size: 45px;
-      --h2-size: 35px;
-      --h3-size: 30px;
-      --h4-size: 25px;
-      // --h5-size: 20px;
-      --box-width: 50%;
+      --box-width: 45%;
       --skill-size: 10vmin;
+      --project-width: 400px;
     }
     @media screen and (max-width: ${size.laptop}) {
-      --box-width: 60%;
+      --box-width: 55%;
       --pimage-size: 4vmin;
       --p-size: 13px;
       --h1-size: 38px;
       --h2-size: 30px;
       --h3-size: 25px;
       --h4-size: 21px;
-      // --h5-size: 17px;
+      --project-width: 370px;
     }
     @media screen and (max-width: ${size.tablet}) {
-      --box-width: 73%;
+      --box-width: 68%;
       --h2-size: 30px;
       --pimage-size: 5.5vmin;
       --skill-size: 12vmin;
+      --project-width: 340px;
     }
     @media screen and (max-width: ${size.mobileL}) {
+      --project-width: 100%;
       --p-size: 10px;
       --h1-size: 25px;
       --h2-size: 20px;

@@ -1,21 +1,20 @@
 import styled from "styled-components";
 import { Svg } from "../0.Components/svg";
 import { SvgLineCircleComponent } from "../0.Components/svgLineCircle";
+import content from "../../xcontent.json";
 
-interface IContact {
-  tag: string
-  header: string
-  text: string
-  mailbox: string
-}
+export const Contact: React.FC = () => {
+  const tag = content.data.pages.Contact.tag;
+  const header = content.data.pages.Contact.header;
+  const text = content.data.pages.Contact.text;
+  const mailbox = content.data.pages.Contact.mailbox;
 
-export const Contact: React.FC<IContact> = ({tag, header, text, mailbox}) => {
   return(
     <ContactContainer id='Contact'>
       <Svg2 fill="var(--dark-blue)" opacity="1" />
       <ContactContent>
         <SvgContainerRight>
-          <p>Contact</p>
+          <p>{tag}</p>
           <SvgLineCircleComponent 
             fillCircle="var(--bck-color)"
             colorCircle="var(--nice-blue)"
@@ -25,12 +24,9 @@ export const Contact: React.FC<IContact> = ({tag, header, text, mailbox}) => {
             type="left"
           />
         </SvgContainerRight>
-        <ContactContentHeader>Get In Touch</ContactContentHeader>
-        <ContactContentText>I’m currently looking for any new opportunities,
-           my inbox is always open. Whether you have a question or a proposal,
-            I’ll try my best to get back to you!
-        </ContactContentText>
-        <ContactContentButton href="mailto:adr.dev.mass@gmail.com" target="_blank">
+        <ContactContentHeader>{header}</ContactContentHeader>
+        <ContactContentText>{text}</ContactContentText>
+        <ContactContentButton href={mailbox} target="_blank">
           <div>Mail</div>
         </ContactContentButton>
       </ContactContent>
@@ -41,7 +37,7 @@ export const Contact: React.FC<IContact> = ({tag, header, text, mailbox}) => {
 
 const ContactContainer = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   position: relative;
   background-color: var(--bck-color);
   display: flex;
@@ -78,6 +74,7 @@ const ContactContainer = styled.div`
 `
 
 const Svg2 = styled(Svg)`
+  pointer-events: none;
   top: 21vw;
   transform-origin: 0 0;
   transform: scale(1,-1);
@@ -152,7 +149,7 @@ const SvgContainerRight = styled.div`
   align-items: center;
   position: absolute;
   right: calc(15% - 17px);
-  top: 47.7vh;
+  top: 52.7vh;
   z-index: 1;
   > p{
     color: var(--nice-blue);
@@ -160,6 +157,6 @@ const SvgContainerRight = styled.div`
     margin-right: 5px;
   }
   @media screen and (max-width: 425px) {
-    top: 25vh;
+    top: 28vh;
   }
 `

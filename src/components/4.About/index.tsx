@@ -1,25 +1,15 @@
-import styled from "styled-components";
-import { Svg } from "../0.Components/svg";
-import { SvgLineCircleComponent } from "../0.Components/svgLineCircle";
-
-interface IaboutMe{
-  text: string
-  tag: string
-}
-
-interface ImySkills{
-  skills: string[]
-  tag: string
-}
-
-interface IAbout{
-  tag: string
-  aboutMe: IaboutMe
-  mySkills: ImySkills
-}
+import styled from 'styled-components';
+import { Svg } from '../0.Components/svg';
+import { SvgLineCircleComponent } from '../0.Components/svgLineCircle';
+import content from '../../xcontent.json'
 
 
-export const About: React.FC<IAbout> = ({tag, aboutMe, mySkills}) => {
+export const About: React.FC = () => {
+
+  const tag = content.data.pages.About.tag;
+  const aboutMe = content.data.pages.About.aboutMe;
+  const mySkills= content.data.pages.About.mySkills;
+
   return(
     <AboutContainer id={tag}>
       <SvgContainerLeftOne>
@@ -50,12 +40,20 @@ export const About: React.FC<IAbout> = ({tag, aboutMe, mySkills}) => {
         </AboutText>
       </AboutTextContainer>
       <AboutSkillsContainer>
-        {mySkills.skills.map((skill) => <AboutSkillImage src={`/images/${skill}.png`} alt={skill} key={skill} />)}
+        {mySkills.skills.map((skill) => { 
+          return(
+          <SkillContainer>
+            <AboutSkillImage src={`/images/${skill}.png`} alt={skill} key={skill} />
+            <AboutSkill></AboutSkill>
+          </SkillContainer>
+          )
+        })}
       </AboutSkillsContainer>
       <Svg fill="var(--dark-blue)" opacity="1"/>
     </AboutContainer>
   );
 };
+
 
 const AboutContainer = styled.div`
   position: relative;
@@ -67,7 +65,7 @@ const AboutContainer = styled.div`
   height: 100vh;
   background: var(--bck-color);
   :before {
-    content: "";
+    content:' ';
     width: 2.5px;
     height: 100%;
     display: block;
@@ -95,6 +93,7 @@ const AboutText = styled.div`
   color: var(--nice-blue);
   font-size: var(--h5-size);
   border-radius: 10px;
+  white-space: pre-line;
 `
 const AboutSkillsContainer = styled.div`
   margin-top: 2%;
@@ -109,10 +108,22 @@ const AboutSkillsContainer = styled.div`
   }
 `
 
+const SkillContainer = styled.div`
+  width: var(--skill-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2vmin;
+`
+
 const AboutSkillImage = styled.img`
   width: var(--skill-size);
   height: var(--skill-size);
   margin: 2vmin;
+`
+
+const AboutSkill = styled.div`
 `
 
 

@@ -1,8 +1,19 @@
 import styled, { css } from "styled-components";
 import { ProjectDetails } from "./projectDetails";
 import { SvgLineCircleComponent } from "../0.Components/svgLineCircle"
-import { ISingleProject } from ".";
-
+export interface ISingleProject {
+  title: string
+  header: string
+  description: string
+  languages: ILanguage[]
+  frameworks:  string[]
+  github: string
+  external: string
+}
+export interface ILanguage {
+  name: string
+  prc: number
+}
 interface IProject {
   project: ISingleProject
   gapTop?: boolean
@@ -173,5 +184,6 @@ const ProjectAboutText = styled.div`
   > p {
     font-size: var(--p-size);
     margin-bottom: 5%;
+    white-space: pre-line;
   }
 `

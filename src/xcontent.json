@@ -1,14 +1,14 @@
 {
   "data":{
     "landing_text":{
-      "header": "Hi, I`m \n Adrian Stan, and \n I build things for the web.",
-      "text": "I’m a self-taught software developer with almost 3 years experince of building web related projects. My interest in web development started back in 2018"
+      "header": "Hi, I`m Adrian Stan, and \n I build things for the web.",
+      "text": "I’m a self-taught developer with almost 3 years experience of building web related projects."
     },
     "pages":{
       "About":{
         "tag": "About",
         "aboutMe": {
-          "text":"Self-taught passionate developer from Romania, currently working on personal projects, most notable cand be found below. I've been building stuff on the web for almost 3 years.",
+          "text":"Self-taught passionate developer from Romania, currently focused on personal projects, most notable can be found below. \n My interest in web development started back in 2019 and i've built things on the web since then. \n At this moment i'm working at an insurance company (not related with web development)",
           "tag": "About Me"
         },
         "mySkills":{
@@ -23,59 +23,56 @@
           "projects": [
             {
               "title":"Movies API",
-              "header": "Api that provides data from Imdb",
-              "description":"Api for Imdb data, movies and series. \n Based on complete and daily updated database with ~ 9 million titles. \n This api is available on Rapid Api as Data-Imdb V2 and has around 1 million calls every month, average error rate below 1%. \n Futures plans are to make this api an independent app not dependent on Rapid Api infrastructure. \n Data collected with a scraper developed with python",
+              "header": "Api database of movies",
+              "description":"Api for movies and series data provided by imdb, rotten tomatoes and other.\n Based on complete and daily updated database with ~ 9 million titles.\n Data is scraped from sources with a python script and stored in mongodb database. \n \n This api is available on Rapid Api as MoviesDatabase and has around 300.000 calls every month, the average error rate below 1%, average latency 74ms. \n \n Futures plans are to make this api an independent app not dependent on Rapid Api infrastructure.",
               "languages":[{"name": "javascript", "prc":70}, {"name": "python", "prc":30}],
               "frameworks":["node", "express", "mongo"],
-              "github": "https://github.com/Adriano13S/ImdbMEN.git",
-              "external": "https://rapidapi.com/SAdrian/api/data-imdb1/"
+              "github": "https://github.com/Adriano13S/MoviesApi",
+              "external": "https://rapidapi.com/SAdrian/api/moviesdatabase/"
+            },
+            {
+              "title":"Movies App",
+              "header": "A web app for watching movies",
+              "description":"This is a search & discover website for tv-shows and movie that only uses information from Movies API.\n As is a 'work in progress', future plans are to add user accounts and additional informations for movies and series.",
+              "languages":[{"name": "javascript", "prc":100}],
+              "frameworks":["node","react"],
+              "github": "https://github.com/Adriano13S/MoviesApp",
+              "external": "http://moviesfather.com/"
             },
             {
               "title":"Xcote App",
-              "header": "A web app that provides odds and live info for sporting events",
-              "description":"Compares odds for sporting events and provides live info and live odds. \n The information provided is scraped by the app backend from four of the biggest romanian sportsbooks, and it is updated every minute. \n",
+              "header": "A web app for odds and live info of sporting events",
+              "description":"Compares odds for sporting events and provides live info and live odds.\n The data provided is scraped by the app backend from four of the biggest romanian sportsbooks, and it is updated every minute. \n \nFutures plans are to create user accounts to give users the posibiliy to track favorit games informations and get live notifications.",
               "languages":[{"name": "javascript", "prc":100}],
               "frameworks":["node", "express","react", "redux"],
-              "github": "https://github.com/Adriano13S/Xcote-React",
+              "github": "https://github.com/Adriano13S/XcoteReact",
               "external": "https://xcote.ro/"
-            },
-            {
-              "title":"Portofolio App",
-              "header": "What are you seeing now ;)",
-              "description":"App build with React, typescript and styled components",
-              "languages":[{"name": "javascript", "prc":100}],
-              "frameworks":["react", "typescript"],
-              "github": "https://github.com/",
-              "external": "https://github.com/"
             }
           ]
         },
         "secondaryProjects":{
-          "tag":"Secondary Projects",
+          "tag":"Other Projects",
           "projects": [
             {
-              "title":"Title",
-              "header": "A web app for visualizing personalized Spotify data",
-              "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
-              "tools": ["javascript", "node", "express"],
-              "github": "https://github.com/",
-              "external": "https://github.com/"
+              "title":"Portofolio",
+              "description":"This is what are you seeing now !",
+              "tools": ["typescript", "react", "styled-components"],
+              "github": "https://github.com/Adriano13S/Portofolio",
+              "external": "http://sadrian.site/"
             },
             {
-              "title":"Title",
-              "header": "A web app for visualizing personalized Spotify data",
-              "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
-              "tools": ["javascript", "node", "express"],
-              "github": "https://github.com/",
-              "external": "https://github.com/"
+              "title":"Real Time Statistics API",
+              "description":"Api that provides over 300 counters of simulated real time statistics, like world population, world births, today births etc. \n The numbers that this api provides are similar to the worldometer.com numbers.",
+              "tools": ["node", "typescript", "express"],
+              "github": "https://github.com/Adriano13S/RealTimeStatistics",
+              "external": "https://rapidapi.com/SAdrian/api/real-time-statistics/"
             },
             {
-              "title":"Title",
-              "header": "A web app for visualizing personalized Spotify data",
-              "description":"View your top artists, top tracks, recently played tracks \n Detailed audio information about each track.. \n Create and save new playlists of recommended tracks based on your existing playlists and more..",
-              "tools": ["javascript", "node", "express"],
-              "github": "https://github.com/",
-              "external": "https://github.com/"
+              "title":"Xcote App Backend",
+              "description":"Api and data scraper that deliver odds for sporting events, live info and live odds.\nThe data comes from four of the biggest romanian bookmakers, and it is updated every minute",
+              "tools": ["node", "express"],
+              "github": "https://github.com/Adriano13S/XcoteNode",
+              "external": "https://xcote.ro/"
             }
           ]
         }

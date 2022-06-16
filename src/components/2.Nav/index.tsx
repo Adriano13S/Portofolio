@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { NavButton } from './navButton';
-
-interface INav{
-  options: string[]
-};
+import content from '../../xcontent.json';
 
 // document.body.scrollHeight - window.innerHeight // scroll y refference to bottom
-export const Nav: React.FC<INav> = ({options}) => {
+export const Nav: React.FC = () => {
+  const navOptions: string[] = Object.keys(content.data.pages);
+
   const [navSide, setNavSide] = useState(false);
   const position = useRef(0);
   const [showNav, setShowNav] = useState(true);
@@ -31,16 +30,16 @@ export const Nav: React.FC<INav> = ({options}) => {
   return(
     <NavContainer showNav={showNav}>
       <NavLeft>
-        <NavButton text='Resume' href='#' />
+        <NavButton text="Resume" href="./resume.pdf" target="_blank" />
       </NavLeft>
       <NavHam showNav={showNav}>
-        <InputHam type='checkbox' onClick={()=> setNavSide(!navSide)}/>
+        <InputHam type="checkbox" onClick={()=> setNavSide(!navSide)}/>
         <span></span>
         <span></span>
         <span></span>
       </NavHam>
       <NavRight open={navSide} showNav={showNav}>
-        {options.map((op) => <NavButton key={op} text={op} href={`#${op}`}/>)}
+        {navOptions.map((op) => <NavButton key={op} text={op} href={`#${op}`}/>)}
       </NavRight>
     </NavContainer>
   );
